@@ -13,13 +13,13 @@ namespace ratnum
             RatNum res = oneHalf.Add(oneFourth);
             res.print();
 
-            RatNum res = oneHalf.Substract(oneFourth);
+            res = oneHalf.Substract(oneFourth);
             res.print();
 
-            RatNum res = oneHalf.Multiply(oneFourth);
+            res = oneHalf.Multiply(oneFourth);
             res.print();
 
-            RatNum res = oneHalf.Divide(oneFourth);
+            res = oneHalf.Divide(threeFourth);
             res.print();
         }
     }
