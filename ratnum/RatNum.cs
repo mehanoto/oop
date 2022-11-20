@@ -8,9 +8,17 @@ namespace ratnum
         public int num;
         public int denum;
 
-        //TODO: добавете конструктор по подразбиране,който не приема входни аргументи и инициализира num = 0, denum = 1
+        public RatNum()
+        {
+            this.num = 0;
+            this.denum = 1;
+        }
 
-        //TODO: добавете конструктор, който приема единствено числителя като аргумент и инициализира num = (предадения аргумент), denum = 1
+        public RatNum(int num)
+        {
+            this.num = num;
+            this.denum = 1;
+        }
 
         public RatNum(int num, int denum)
         {
@@ -27,6 +35,9 @@ namespace ratnum
             RatNum res = new RatNum();
             res.num = (this.num * other.denum) + (this.denum * other.num);
             res.denum = this.denum * other.denum;
+            int gcd = this.gcd(res.num, res.denum);
+            res.num = res.num / gcd;
+            res.denum = res.denum / gcd;
             return res;
         }
 
@@ -36,8 +47,10 @@ namespace ratnum
         /// </summary>
         public RatNum Substract(RatNum other)
         {
-            //TODO: реализирайте метода
-            return null;
+            RatNum res = new RatNum();
+            res.num = (this.num * other.denum) - (this.denum * other.num);
+            res.denum = this.denum * other.denum;
+            return res;
         }
 
         /// <summary>
@@ -46,8 +59,10 @@ namespace ratnum
         /// </summary>
         public RatNum Multiply(RatNum other)
         {
-            //TODO: реализирайте метода
-            return null;
+            RatNum res = new RatNum();
+            res.num = this.num * other.num;
+            res.denum = this.denum * other.denum;
+            return res;
         }
 
         /// <summary>
@@ -56,8 +71,37 @@ namespace ratnum
         /// </summary>
         public RatNum Divide(RatNum other)
         {
-            //TODO: реализирайте метода
-            return null;
+            RatNum res = new RatNum();
+            res.num = this.num * other.denum;
+            res.denum = this.denum * other.num;
+            return res;
+        }
+
+        private int gcd(int a, int b)
+        {
+            int tmp, r;
+            if(a < b)
+            {
+                tmp = a;
+                a = b;
+                b = tmp;
+            }
+            while(b != 0)
+            {
+                r = a % b;
+                a = b;
+                b = r;
+            }
+            return a;
+        }
+
+        public void printNorm()
+        {
+            if(this.denum == 1)
+            {
+                System.Console.WriteLine(this.num);
+            }
+            //TODO: продължете
         }
 
         public void print()
