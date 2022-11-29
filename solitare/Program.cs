@@ -22,7 +22,13 @@ namespace solitare
             Card pikes2 = new Card(2,2);
             pikes2.print();
 
-
+            Deck deck = new Deck();
+            while(deck.HasMoreCards())
+            {
+                Card c = deck.GetNextCard();
+                c.print();
+                System.Console.WriteLine();
+            }
 
         }
     }

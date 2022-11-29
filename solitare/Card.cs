@@ -27,12 +27,46 @@ namespace solitare
             }
             else
             {
-                //TODO: принтирайте картата ако е J, Q, K, A
+                if(num == 11) 
+                {
+                    System.Console.Write('J');
+                }
+                else if(num == 12)
+                {
+                    System.Console.Write('Q');
+                }
+                else if(num == 13)
+                {
+                    System.Console.Write('K');
+                }
+                else if(num == 14)
+                {
+                    System.Console.Write('A');
+                }
+                else 
+                {
+                    System.Console.Write("No such card! ");
+                }
             }
 
-            
-            //TODO: принтирайте боята 1-пика, 2-купа, 3-спатия, 4-каро
-            
+            switch (num)
+            {
+                case 1:
+                    System.Console.Write("Pika");
+                    break;
+                case 2:
+                    System.Console.Write("Kupa");
+                    break;
+                case 3:
+                    System.Console.Write("Spatia");
+                    break;
+                case 4:
+                    System.Console.Write("Karo");
+                    break;
+                default:
+                    System.Console.WriteLine(" : няма такава боя !");
+                    break;
+            }
         }
 
 

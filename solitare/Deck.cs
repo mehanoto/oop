@@ -9,25 +9,39 @@ namespace solitare
 
         public bool[] usedCards;
 
+        private int counterUsedCards;
+
         public Deck()
         {
-            //TODO: създайте нов обект от тип списък от карти List<Card> и го запишете в член променливата cardList
+            //TODO: създайте нова инстанция на класа List<Card> и го запишете в член променливата cardList
 
             //TODO: използвайте for цикъл, за да изброите картите от 2 до 14, за всяка итерация за цикъла създайте 4-ри карти със същия номер, но различна боя. Добавете създадените обекти в списъка cardList 
         }
 
         /// <summary>
-        /// Този метод принтира картата в конзолата
+        /// Връща една от неизползваните карти на произволен принцип или null ако всички карти са използвани
         /// </summary>
         public Card GetNextCard()
         {
+            if(counterUsedCards < cardList.Count)
+            {
+                //TODO: get next cards
+            }
             return null;
         }
 
         /// <summary>
-        /// Този метод принтира картата в конзолата
+        /// Връща истина ако има още карти за теглене и лъжа ако няма.
         /// </summary>
-        public void shuffle()
+        public bool HasMoreCards()
+        {
+            
+        }
+
+        /// <summary>
+        /// Този метод "Рестартира" броенето 
+        /// </summary>
+        public void Reset()
         {
 
         }
