@@ -12,7 +12,8 @@ namespace solitare
 
         public Card(int n, int c)
         {
-
+            num = n;
+            colour = c;
         }
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace solitare
             //принтираме картата по-долу е даден кода ако картата е в интервала 2-10, трябва да се погрижим за случаите когато num > 10
             if(num <= 10)
             {
-                System.Console.WriteLine(num);
+                System.Console.Write(num);
             }
             else
             {
@@ -49,7 +50,7 @@ namespace solitare
                 }
             }
 
-            switch (num)
+            switch (this.colour)
             {
                 case 1:
                     System.Console.Write("Pika");
@@ -64,7 +65,7 @@ namespace solitare
                     System.Console.Write("Karo");
                     break;
                 default:
-                    System.Console.WriteLine(" : няма такава боя !");
+                    System.Console.WriteLine(" : no such suite !");
                     break;
             }
         }
