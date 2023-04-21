@@ -5,7 +5,7 @@ namespace solitare
     ///Клас карта за игра
     public class Card
     {
-        //11->J, 12->Q, 13->K, 14->A
+        //11->J, 12->Q, 13->K, 1->A
         public int num;
         //1-пика, 2-купа, 3-спатия, 4-каро
         public int colour;

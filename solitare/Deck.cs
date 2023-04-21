@@ -8,22 +8,17 @@ namespace solitare
     {
         public List<Card> cardList;
 
-        public bool[] usedCards;
-
-        private int counterUsedCards;
-
         public Deck()
         {
             this.cardList = new List<Card>();
-            for (int num = 2; num <= 14; num++)
+            for (int num = 1; num <= 13; num++)
             {
                 for (int c = 1; c <= 4; c++)
                 {
                     this.cardList.Add(new Card(num, c));
                 }
             }
-            this.usedCards = new bool[this.cardList.Count];
-            this.counterUsedCards = 0;
+            this.Shuffle();
         }
 
         /// <summary>
@@ -31,20 +26,6 @@ namespace solitare
         /// </summary>
         public Card GetNextCard()
         {
-            if(counterUsedCards < cardList.Count)
-            {
-                Random rnd = new Random();
-                int i = rnd.Next(this.cardList.Count);
-                while (this.usedCards[i])
-                {
-                    i++;
-                    if (i >= this.usedCards.Length)
-                    {
-                        i = 0;
-                    }
-                }
-
-            }
             return null;
         }
 
@@ -55,7 +36,7 @@ namespace solitare
         /// </summary>
         public bool HasMoreCards()
         {
-            return this.counterUsedCards < this.cardList.Count;
+            return cardList.Count > 0;
         }
 
         /// <summary>
@@ -63,10 +44,17 @@ namespace solitare
         /// </summary>
         public void Reset()
         {
-            this.counterUsedCards = 0;
-            for (int i = 0; i < this.usedCards.Length; i++)
+        }
+
+        public void Shuffle()
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < cardList.Count - 1; i++)
             {
-                this.usedCards[i] = false; 
+                int j = rnd.Next(i + 1, cardList.Count);
+                Card temp = cardList[i];
+                cardList[i] = cardList[j];
+                cardList[j] = temp;
             }
         }
 
