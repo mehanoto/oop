@@ -10,12 +10,41 @@ namespace solitare
         public List<Card> stack;
         public int pointer;
 
+        public Card TopCard 
+        {
+            get 
+            {
+                if (this.stack != null && this.stack.Count > 0 && this.pointer < this.stack.Count)
+                {
+                    return this.stack[this.stack.Count - 1];
+                }
+                else
+                { 
+                    return null;
+                }
+            }
+        }
+
+        public int VisibleCards
+        {
+            get
+            {
+                if (this.pointer >= 0 && this.pointer < this.stack.Count)
+                {
+                    return this.stack.Count - this.pointer;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        }
+        
         public SolitareStack()
         {
             this.stack = new List<Card>();
             this.pointer = -1;
         }
-
 
         /// <summary>
         /// Check whether card c could be placed on top of the stack
@@ -36,6 +65,14 @@ namespace solitare
             
         }
 
+        /// <summary>
+        /// Adds new list of cards on top of the stack
+        /// </summary>
+        /// <param name="newCards"></param>
+        public void AddToTop(Card c)
+        {
+
+        }
 
         /// <summary>
         /// Removes cards from top of the stack and returns them as a list.
@@ -44,8 +81,8 @@ namespace solitare
         /// <param name="cards">A number of cards to be removed</param>
         /// <returns>A list of removed cards</returns>
         public List<Card> Slice(int cards)
-        { 
-            
+        {
+            return null;
         }
 
 
@@ -65,5 +102,9 @@ namespace solitare
             }
         }
 
+        public bool IsEmpty()
+        {
+            return this.stack.Count == 0;
+        }
     }
 }
