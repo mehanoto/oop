@@ -70,7 +70,10 @@ namespace solitare
             }
         }
 
-
+        public bool IsBlack()
+        {
+            return colour == 1 || colour == 3;
+        }
 
     }
 }

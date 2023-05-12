@@ -14,7 +14,7 @@ namespace solitare
         {
             get 
             {
-                if (this.stack != null && this.stack.Count > 0 && this.pointer < this.stack.Count)
+                if (this.stack != null && this.stack.Count > 0)
                 {
                     return this.stack[this.stack.Count - 1];
                 }
@@ -53,7 +53,17 @@ namespace solitare
         /// <returns></returns>
         public bool CheckFeasible(Card c)
         {
-            return false;
+            Card topCard = stack[stack.Count - 1];
+
+            if (c.IsBlack() != topCard.IsBlack() && c.num == topCard.num - 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         /// <summary>
@@ -61,18 +71,31 @@ namespace solitare
         /// </summary>
         /// <param name="newCards"></param>
         public void AddToTop(List<Card> newCards)
-        { 
-            
-        }
-
-        /// <summary>
-        /// Adds new list of cards on top of the stack
-        /// </summary>
-        /// <param name="newCards"></param>
-        public void AddToTop(Card c)
         {
-
+            Card topCardFromNewCards = newCards[1];
+            if (this.stack.Count == 0 || this.CheckFeasible(topCardFromNewCards))
+            {
+                this.stack.AddRange(newCards);
+            }
+            else
+            {
+                throw new Exception("illegal move");
+            }
         }
+        public void AddToTop(Card topCard)
+        {
+            Card topCardFromNewCards = topCard;
+
+            if (this.stack.Count == 0 || this.CheckFeasible(topCardFromNewCards))
+            {
+                this.stack.Add(topCard);
+            }
+            else
+            {
+                throw new Exception("Illegal move");
+            }
+        }
+
 
         /// <summary>
         /// Removes cards from top of the stack and returns them as a list.
@@ -82,7 +105,28 @@ namespace solitare
         /// <returns>A list of removed cards</returns>
         public List<Card> Slice(int cards)
         {
-            return null;
+            if (stack.Count > 0)
+            {
+                int visibleCard = stack.Count - pointer;
+                if (visibleCard < cards)
+                {
+                    throw new Exception("not enough visible cards");
+                }
+                List<Card> result = new List<Card>();
+                for (int i = stack.Count - cards; i < stack.Count; i++)
+                {
+                    result.Add(stack[i]);
+                }
+                stack.RemoveRange(stack.Count - cards, cards);
+
+
+                return result;
+            }
+            else 
+            {
+                throw new Exception("Invalid op");
+            }
+
         }
 
 
@@ -96,15 +140,17 @@ namespace solitare
             {
                 this.pointer = this.stack.Count;
             }
-            else if(pointer > 0)
+            else if (pointer > 0)
             {
                 --pointer;
             }
+
         }
 
         public bool IsEmpty()
         {
-            return this.stack.Count == 0;
+            return stack.Count == 0;
         }
     }
 }
+
