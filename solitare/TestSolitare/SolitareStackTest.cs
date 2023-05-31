@@ -187,7 +187,7 @@ namespace TestSolitare
             target.AddToTop(new Card(12, 2));
             target.Flip();
 
-            Card kingOfSpades = new Card(13, 1);
+            Card kingOfSpades = new Card(12, 2);
             Assert.AreEqual(kingOfSpades, target.TopCard);
             Assert.AreEqual(1, target.VisibleCards);
 

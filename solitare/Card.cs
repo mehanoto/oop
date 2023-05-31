@@ -75,6 +75,20 @@ namespace solitare
             return colour == 1 || colour == 3;
         }
 
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Card c = (Card)obj;
+                return this.num == c.num && this.colour == c.colour;
+            }
+        }
+
     }
 }
 

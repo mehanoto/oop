@@ -11,6 +11,9 @@
 **/bin
 **/obj
 **/.vscode
+**/TestResults
 
 # Built Visual Studio Code Extensions
 *.vsix
+# Test result files
+*.trx

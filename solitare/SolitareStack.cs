@@ -107,8 +107,7 @@ namespace solitare
         {
             if (stack.Count > 0)
             {
-                int visibleCard = stack.Count - pointer;
-                if (visibleCard < cards)
+                if (this.VisibleCards < cards)
                 {
                     throw new Exception("not enough visible cards");
                 }
@@ -138,7 +137,7 @@ namespace solitare
             bool isValidPointer = this.pointer >= 0 && this.pointer < stack.Count;
             if (!isValidPointer)
             {
-                this.pointer = this.stack.Count;
+                this.pointer = this.stack.Count - 1;
             }
             else if (pointer > 0)
             {
