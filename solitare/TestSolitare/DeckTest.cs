@@ -73,11 +73,11 @@ namespace TestSolitare
             Deck target = new Deck(); // TODO: Initialize to an appropriate value
             Card cToRemove = new Card(2, 2); // TODO: Initialize to an appropriate value
 
-            Assert.AreEqual(52, target.cardList);
+            Assert.AreEqual(52, target.CardNumber);
 
             bool actual = target.RemoveCard(cToRemove);
             Assert.AreEqual(true, actual);
-            Assert.AreEqual(51, target.cardList);
+            Assert.AreEqual(51, target.CardNumber);
 
             actual = target.RemoveCard(cToRemove);
             Assert.AreEqual(false, actual);
