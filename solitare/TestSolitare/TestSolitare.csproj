@@ -53,6 +53,7 @@
     <Compile Include="DeckTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolitareStackTest.cs" />
+    <Compile Include="TopStackTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\solitare.csproj">
