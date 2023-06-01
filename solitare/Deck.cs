@@ -8,6 +8,15 @@ namespace solitare
     {
         public List<Card> cardList;
 
+        public int CardNumber
+        {
+            get
+            {
+                //връща бройката карти оставащи в тестето
+                return 0;
+            }
+        }
+
         public Deck()
         {
             this.cardList = new List<Card>();
@@ -29,7 +38,15 @@ namespace solitare
             return null;
         }
 
-
+        /// <summary>
+        /// Премахва картата cToRemove от списъка с карти и връща true при успешно премахване, иначе false
+        /// </summary>
+        /// <param name="cToRemove"></param>
+        /// <returns></returns>
+        public bool RemoveCard(Card cToRemove)
+        {
+            return false;
+        }
 
         /// <summary>
         /// Връща истина ако има още карти за теглене и лъжа ако няма.
