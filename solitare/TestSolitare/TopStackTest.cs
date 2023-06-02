@@ -91,7 +91,7 @@ namespace TestSolitare
 
         
         [TestMethod()]
-        public void CheckFeasibleFirstCardTest()
+        public void CheckFeasibleTest()
         {
             TopStack stack = new TopStack();
             int colour = 1; //пика
