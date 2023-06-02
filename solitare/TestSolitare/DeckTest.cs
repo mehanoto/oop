@@ -73,14 +73,47 @@ namespace TestSolitare
             Deck target = new Deck(); // TODO: Initialize to an appropriate value
             Card cToRemove = new Card(2, 2); // TODO: Initialize to an appropriate value
 
-            Assert.AreEqual(52, target.CardNumber);
+            Assert.AreEqual(52, target.NumberOfCards);
 
             bool actual = target.RemoveCard(cToRemove);
             Assert.AreEqual(true, actual);
-            Assert.AreEqual(51, target.CardNumber);
+            Assert.AreEqual(51, target.NumberOfCards);
 
             actual = target.RemoveCard(cToRemove);
             Assert.AreEqual(false, actual);
+        }
+
+        /// <summary>
+        ///A test for RemoveCard
+        ///</summary>
+        [TestMethod()]
+        public void RemoveImaginaryCardTest()
+        {
+            Deck deck = new Deck();
+            Card fakeCard = new Card(20, 2); // Създаваме несъществуваща карта
+
+            Assert.AreEqual(52, deck.NumberOfCards);
+            Assert.AreEqual(false, deck.RemoveCard(fakeCard));
+            Assert.AreEqual(52, deck.NumberOfCards);
+        }
+
+        /// <summary>
+        ///A test for GetNextCard.
+        ///Симулираме дали след извъртане на цялото тесте отново стигаме до първата изтеглена карта
+        ///</summary>
+        [TestMethod()]
+        public void GetNextCardTest()
+        {
+            Deck deck = new Deck(); 
+            Card firstCard = deck.GetNextCard(); 
+
+            for (int i = 1; i < deck.NumberOfCards; i++)
+            {
+                deck.GetNextCard();
+            }
+
+            Assert.AreEqual(firstCard, deck.GetNextCard());
+
         }
     }
 }

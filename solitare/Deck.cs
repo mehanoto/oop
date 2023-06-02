@@ -8,7 +8,7 @@ namespace solitare
     {
         public List<Card> cardList;
 
-        public int CardNumber
+        public int NumberOfCards
         {
             get
             {
@@ -57,13 +57,6 @@ namespace solitare
         public bool HasMoreCards()
         {
             return cardList.Count > 0;
-        }
-
-        /// <summary>
-        /// Този метод "Рестартира" броенето 
-        /// </summary>
-        public void Reset()
-        {
         }
 
         public void Shuffle()
