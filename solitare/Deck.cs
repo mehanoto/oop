@@ -45,6 +45,9 @@ namespace solitare
         /// <returns></returns>
         public bool RemoveCard(Card cToRemove)
         {
+
+            
+
             return false;
         }
 
